@@ -42,13 +42,10 @@ public class LoginController {
         Optional<User> user=userService.login(dto.getUsername(),dto.getPassword());
 
         if(user.isPresent()){
-            if(user.get().getGender().equals(EGender.FEMALE)){
-                modelAndView.addObject("user",userService.findById(user.get().getId()));
+                modelAndView.addObject("user",user.get());
+            modelAndView.addObject("detail",user.get().getUserDetail());
                 modelAndView.setViewName("home");
-            }else{
-                modelAndView.addObject("user",userService.findById(user.get().getId()));
-                modelAndView.setViewName("home");
-            }
+
         }else{
             modelAndView.setViewName("redirect:login");
             throw new MonolithicManagerException(ErrorType.USERNAME_OR_PASSWORD_MISMATCH);

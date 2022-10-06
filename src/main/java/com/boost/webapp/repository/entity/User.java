@@ -26,7 +26,7 @@ public class User extends Default {
     String email;
     @Enumerated(EnumType.STRING)
     EGender gender;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_detail_id")
     UserDetail userDetail;
 }

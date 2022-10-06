@@ -33,7 +33,7 @@ public class DefaultDataImpl {
                 .build();
 
         UserDetail userDetail2=UserDetail.builder()
-                .name("sezer")
+                .name("Sezer")
                 .surname("Turkmen")
                 .address("Istanbul")
                 .dob(LocalDate.parse("1992-10-31"))
